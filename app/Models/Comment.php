@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Comment extends Model
 {
+    protected $fillable = [
+        'user_id',
+        'post_id',
+        'body'
+    ];
     /** @use HasFactory<\Database\Factories\CommentFactory> */
     use HasFactory;
 
