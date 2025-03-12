@@ -3,6 +3,8 @@
 @section('content')
 <div class="container ">
     <ul class="list-group list-group-flush">
+
+        {{-- LOOPING THROUGH POST --}}
         @foreach ($posts as $post)
         <li class="list-group-item d-flex justify-content-between align-items-start">
             <div class="ms-2 me-auto">
@@ -18,6 +20,8 @@
             
         @endforeach
     </ul>
+
+    {{-- FOR PEVIOUS AND NEXT PAGE --}}
     <div>
         {{  $posts->links('pagination::bootstrap-5') }}
     </div>

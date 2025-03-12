@@ -20,8 +20,6 @@ class PostController extends Controller
             'post'=> $post,
             'comments'=>$post->comment()->with('user')->paginate(5)
         ]);
-
-        // return dd( $id);
-
     }
+
 }
