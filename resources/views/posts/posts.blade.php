@@ -7,7 +7,7 @@
         <li class="list-group-item d-flex justify-content-between align-items-start">
             <div class="ms-2 me-auto">
                 <div>
-                    <a href="#" class="text-reset text-decoration-none fw-bold">{{ $post->title }}</a>
+                    <a href="{{ route('showPost', $post) }}" class="text-reset text-decoration-none fw-bold">{{ $post->title }}</a>
                 </div>
                 <span class="text-sm text-gray-600">
                     {{ $post->created_at->diffForHumans() }} by {{ $post->user->name }}
