@@ -36,6 +36,15 @@
                     <span class="text-sm text-gray-600">
                         {{ $comment->created_at->diffForHumans() }} by {{ $comment->user->name }}
                     </span> 
+
+                    {{-- DELETE COMMENT --}}
+                    @if (Auth::user()->id == $comment->user_id)
+                        <form action="{{ route('deleteComment', ['post'=>$post, 'comment'=>$comment]) }}" method="post">
+                            @csrf
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    @endif
+                    
                 </div>
             </li> 
             @endforeach

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Symfony\Component\Console\Input\Input;
@@ -17,6 +18,12 @@ class CommentController extends Controller
             'user_id'=> $request->user()->id
         ]);
 
+        return to_route('showPost', $post)->withFragment('comments');
+    }
+
+    public function deleteComment(Post $post, Comment $comment){
+        
+        $comment->delete();
         return to_route('showPost', $post)->withFragment('comments');
     }
 }
