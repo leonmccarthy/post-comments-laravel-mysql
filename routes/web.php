@@ -13,4 +13,4 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
 Route::get('/posts/{post}', [PostController::class, 'showPost'])->name('showPost');
-Route::post('/post/comment/create', [CommentController::class, 'createComment'])->name('createComment');
+Route::post('/posts/comment/create/{post}', [CommentController::class, 'createComment'])->name('createComment');

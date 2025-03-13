@@ -14,6 +14,19 @@
           <p class="card-text">{{ $post->body }}</p>
           <ul class="list-group list-group-flush">
             <h5>Comments</h5>
+
+            @auth
+                {{-- ADDING COMMENT --}}
+                <form action="{{ route('createComment', $post) }}" method="POST">
+                    @csrf
+                    <div class="mb-3">
+                        <label for="body" class="form-label">Comment</label>
+                        <textarea class="form-control" id="body" name="body" rows="5"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            @endauth
+            
             @foreach ($comments as $comment)
             <li class="list-group-item d-flex justify-content-between align-items-start">
                 <div class="ms-2 me-auto">
