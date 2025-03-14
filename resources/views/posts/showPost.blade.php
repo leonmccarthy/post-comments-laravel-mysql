@@ -15,11 +15,22 @@
           <ul class="list-group list-group-flush">
             <h5>Comments</h5>
 
+                 {{-- ERROR VALIDATION MESSAGE --}}
+                 @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                 @endif
+
                 {{-- ADDING COMMENT --}}
                 <form action="{{ route('createComment', $post) }}" method="POST">
                     @csrf
                     <div class="mb-3">
-                        <label for="body" class="form-label">Comment</label>
+                        <label for="body" class="form-label">Write Comment</label>
                         <textarea class="form-control" id="body" name="body" rows="5"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
