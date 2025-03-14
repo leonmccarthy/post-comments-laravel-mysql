@@ -33,6 +33,9 @@
                         <li>
                             <a href="{{ route('posts.index') }}" class="nav-link">Posts</a>
                         </li>
+                        <li>
+                            <a href="{{ route('createPostView') }}" class="nav-link">Add post</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

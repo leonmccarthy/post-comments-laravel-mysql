@@ -15,7 +15,6 @@
           <ul class="list-group list-group-flush">
             <h5>Comments</h5>
 
-            @auth
                 {{-- ADDING COMMENT --}}
                 <form action="{{ route('createComment', $post) }}" method="POST">
                     @csrf
@@ -25,7 +24,6 @@
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
-            @endauth
             
             @foreach ($comments as $comment)
             <li class="list-group-item d-flex justify-content-between align-items-start">
@@ -38,12 +36,15 @@
                     </span> 
 
                     {{-- DELETE COMMENT --}}
-                    @if (Auth::user()->id == $comment->user_id)
-                        <form action="{{ route('deleteComment', ['post'=>$post, 'comment'=>$comment]) }}" method="post">
-                            @csrf
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>
-                    @endif
+                    @auth
+                        @if (Auth::user()->id == $comment->user_id)
+                            <form action="{{ route('deleteComment', ['post'=>$post, 'comment'=>$comment]) }}" method="post">
+                                @csrf
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        @endif
+                    @endauth
+                    
                     
                 </div>
             </li> 

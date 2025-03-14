@@ -22,4 +22,22 @@ class PostController extends Controller
         ]);
     }
 
+    // CREATE POST VIEW
+    public function createPostView(){
+        return view('posts.createPost');
+    }
+
+    // CREATE POST ACTION
+    public function createPostAction(Request $request){
+        $data = $request->validate([
+            'title'=> ['required', 'max:50', 'string'],
+            'body'=> ['required', 'string'],
+        ]);
+
+        Post::create([...$data, 
+            'user_id'=> $request->user()->id
+        ]);
+
+        return to_route('posts.index')->with('success', 'Post Created Successfully');
+    }
 }

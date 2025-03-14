@@ -2,6 +2,11 @@
 
 @section('content')
 <div class="container ">
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
     <ul class="list-group list-group-flush">
 
         {{-- LOOPING THROUGH POST --}}
