@@ -40,4 +40,10 @@ class PostController extends Controller
 
         return to_route('posts.index')->with('success', 'Post Created Successfully');
     }
+
+    // DELETE POST
+    public function deletePost(Post $post){
+        $post->delete();
+        return to_route('posts.index')->with('success', 'Post Deleted Successfully');
+    }
 }

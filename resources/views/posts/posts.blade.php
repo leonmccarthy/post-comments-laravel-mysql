@@ -19,6 +19,16 @@
                 <span class="text-sm text-gray-600">
                     {{ $post->created_at->diffForHumans() }} by {{ $post->user->name }}
                 </span> 
+
+                {{-- DELETE POST --}}
+                    @auth
+                        @if (Auth::user()->id == $post->user_id)
+                            <form action="{{ route('deletePost', $post) }}" method="post">
+                                @csrf
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        @endif
+                    @endauth
             </div>
             
         </li>
