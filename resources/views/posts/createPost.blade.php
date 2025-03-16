@@ -29,7 +29,9 @@
                         <label for="body" class="form-label">Body</label>
                         <textarea class="form-control" id="body" name="body" rows="5"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Add Post</button>
+
+                    <a href="{{ url()->previous() }}" class="btn btn-light">Cancel</a>
                 </form>
             </div>
         </div>

@@ -21,4 +21,6 @@ Route::middleware('auth')->group(function(){
     Route::post('/posts/comment/delete/{post}/{comment}', [CommentController::class, 'deleteComment'])->name('deleteComment');
     Route::post('/post/createAction', [PostController::class, 'createPostAction'])->name('createPostAction');
     Route::post('/post/delete/{post}', [PostController::class, 'deletePost'])->name('deletePost');
+    Route::get('/post/edit/{post}', [PostController::class, 'editPostView'])->name('editPostView');
+    Route::post('/post/edit/{post}', [PostController::class, 'editPostAction'])->name('editPostAction');
 });
